@@ -29,13 +29,14 @@ fmtvprint(Fmt *f, char *fmt, va_list args)
 	f->flags = 0;
 	f->width = 0;
 	f->prec = 0;
-	va = f->args;
-	f->args = args;
+	VA_COPY(va, f->args);
+	VA_COPY(f->args, args);
 	n = dofmt(f, fmt);
 	f->flags = 0;
 	f->width = 0;
 	f->prec = 0;
-	f->args = va;
+	VA_COPY(f->args, va);
+	VA_END(va);
 	if(n >= 0)
 		return 0;
 	return n;
