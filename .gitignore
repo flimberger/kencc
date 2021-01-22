@@ -1,0 +1,12 @@
+# generated files
+*.[8qkv596o]
+[8qkv965o].out
+y.output
+y.tab.[ch]
+y.debug
+*.a
+
+# build system
+/bin
+/env
+/mkconfig
